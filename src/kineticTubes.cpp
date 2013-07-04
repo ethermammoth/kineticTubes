@@ -1,61 +1,61 @@
-#include "testApp.h"
+#include "kineticTubes.h"
 
 //--------------------------------------------------------------
-void testApp::setup(){
+void kineticTubes::setup(){
 
 }
 
 //--------------------------------------------------------------
-void testApp::update(){
+void kineticTubes::update(){
 
 }
 
 //--------------------------------------------------------------
-void testApp::draw(){
+void kineticTubes::draw(){
 
 }
 
 //--------------------------------------------------------------
-void testApp::keyPressed(int key){
+void kineticTubes::keyPressed(int key){
 
 }
 
 //--------------------------------------------------------------
-void testApp::keyReleased(int key){
+void kineticTubes::keyReleased(int key){
 
 }
 
 //--------------------------------------------------------------
-void testApp::mouseMoved(int x, int y ){
+void kineticTubes::mouseMoved(int x, int y ){
 
 }
 
 //--------------------------------------------------------------
-void testApp::mouseDragged(int x, int y, int button){
+void kineticTubes::mouseDragged(int x, int y, int button){
 
 }
 
 //--------------------------------------------------------------
-void testApp::mousePressed(int x, int y, int button){
+void kineticTubes::mousePressed(int x, int y, int button){
 
 }
 
 //--------------------------------------------------------------
-void testApp::mouseReleased(int x, int y, int button){
+void kineticTubes::mouseReleased(int x, int y, int button){
 
 }
 
 //--------------------------------------------------------------
-void testApp::windowResized(int w, int h){
+void kineticTubes::windowResized(int w, int h){
 
 }
 
 //--------------------------------------------------------------
-void testApp::gotMessage(ofMessage msg){
+void kineticTubes::gotMessage(ofMessage msg){
 
 }
 
 //--------------------------------------------------------------
-void testApp::dragEvent(ofDragInfo dragInfo){ 
+void kineticTubes::dragEvent(ofDragInfo dragInfo){ 
 
 }

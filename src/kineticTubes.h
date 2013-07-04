@@ -2,7 +2,7 @@
 
 #include "ofMain.h"
 
-class testApp : public ofBaseApp{
+class kineticTubes : public ofBaseApp{
 
 	public:
 		void setup();
