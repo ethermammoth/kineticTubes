@@ -15,26 +15,32 @@
 class ktMainUI
 {
 public:
+    
     void setup(int _width, int _height);
     void resize(int _width, int _height);
     void exit();
+    string getActive(){ return activeView; }
+    ofRectangle getMainView();
+    
 private:
     //functions
     void guiEvent(ofxUIEventArgs &e);
-    //variables
-    ofxUITabBar *topbar;
+    
+    //variables    
     int width, height;
     int mainTheme;
+    string activeView;
+    ofRectangle mainView;
     
-    //color settings
-    ofxUIColor colorFill;
-    ofxUIColor colorFillHighlight;
-    ofxUIColor colorBack;
+    //Main Bar
+    ofxUICanvas *guiTopbar;
+    float topHeightPerc;
     
     //SUB UIs / canvas
     ofxUICanvas *guiSettings;
     ofxUICanvas *guiStatus;
     ofxUICanvas *guiPreview;
+    float mainHeightPerc;
 };
 
 

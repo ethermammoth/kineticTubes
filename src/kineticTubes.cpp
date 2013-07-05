@@ -3,8 +3,16 @@
 //--------------------------------------------------------------
 void kineticTubes::setup()
 {
+    ofBackground(0);
+    mainSettings = new ktSettings();
+    mainSettings->setup();
+    
     mainUI = new ktMainUI();
-    mainUI->setup( ofGetWindowWidth(), 70 );
+    mainUI->setup( ofGetWindowWidth(), ofGetWindowHeight() );
+    
+    previewGL = new ktPreviewGL();
+    previewGL->setup();
+    previewGL->setViewport(mainUI->getMainView());
 }
 
 //--------------------------------------------------------------
@@ -16,7 +24,7 @@ void kineticTubes::update()
 //--------------------------------------------------------------
 void kineticTubes::draw()
 {
-
+    previewGL->draw(mainUI->getActive());
 }
 
 //--------------------------------------------------------------
@@ -58,7 +66,8 @@ void kineticTubes::mouseReleased(int x, int y, int button)
 //--------------------------------------------------------------
 void kineticTubes::windowResized(int w, int h)
 {
-    mainUI->resize(w, 70);
+    mainUI->resize(w, h);
+    previewGL->setViewport(mainUI->getMainView());
 }
 
 //--------------------------------------------------------------
@@ -77,4 +86,10 @@ void kineticTubes::dragEvent(ofDragInfo dragInfo)
 void kineticTubes::exit()
 {
     mainUI->exit();
+    previewGL->exit();
+    mainSettings->exit();
+    
+    delete mainUI;
+    delete previewGL;
+    delete mainSettings;
 }

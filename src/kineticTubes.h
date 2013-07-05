@@ -2,7 +2,9 @@
 
 #include "ofMain.h"
 #include "ofxUI.h"
+#include "ktSettings.h"
 #include "ktMainUI.h"
+#include "ktPreviewGL.h"
 
 class kineticTubes : public ofBaseApp
 {
@@ -23,7 +25,11 @@ public:
     void gotMessage(ofMessage msg);
     void exit();
     
+    //Main Settings
+    ktSettings *mainSettings;
+    
     //GUI
     ktMainUI *mainUI;
+    ktPreviewGL *previewGL;
     
 };
