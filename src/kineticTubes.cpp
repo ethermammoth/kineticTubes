@@ -3,28 +3,46 @@
 //--------------------------------------------------------------
 void kineticTubes::setup()
 {
-    ofBackground(0);
+    ofBackground(10, 10, 10);
     mainSettings = new ktSettings();
     mainSettings->setup();
     
     mainUI = new ktMainUI();
-    mainUI->setup( ofGetWindowWidth(), ofGetWindowHeight() );
+    mainUI->setup( ofGetWindowWidth(), ofGetWindowHeight(), *mainSettings);
     
     previewGL = new ktPreviewGL();
     previewGL->setup();
     previewGL->setViewport(mainUI->getMainView());
+    previewGL->setTubes(*mainSettings);
+    
+    testData = new ktData();
+    testData->setup(*mainSettings);
+    
+    ofAddListener(ktEvent::events, this, &kineticTubes::guiSettingsEvent);
+    
 }
 
 //--------------------------------------------------------------
 void kineticTubes::update()
 {
-
+    if( mainUI->getActive() == "PREVIEW" )
+    {
+        testData->update();
+    }
 }
 
 //--------------------------------------------------------------
 void kineticTubes::draw()
 {
-    previewGL->draw(mainUI->getActive());
+    previewGL->draw(mainUI->getActive(), testData->getData());
+    string posStr = "FPS: " + ofToString(ofGetFrameRate(), 0);
+    ofDrawBitmapStringHighlight(posStr, 700, 20);
+}
+
+void kineticTubes::guiSettingsEvent(ktEvent &e)
+{
+    string name = e.message;
+    cout << "kinetic Tubes: " << name << endl;
 }
 
 //--------------------------------------------------------------

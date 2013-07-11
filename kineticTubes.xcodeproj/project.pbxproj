@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		125506cd3e5f428aafe5cc657e873ba0 /* ofxTCPManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = f399b91e98dc31cda6ddacb450bb19da /* ofxTCPManager.cpp */; };
+		3A3F96CE178AC42A00DDE83A /* ktData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F96CD178AC42A00DDE83A /* ktData.cpp */; };
 		3A74A4501786D40B0013A970 /* ktSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A74A44F1786D40B0013A970 /* ktSettings.cpp */; };
 		3AA690881785AB31007D9C21 /* ktMainUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AA690871785AB31007D9C21 /* ktMainUI.cpp */; };
+		3ABE0BE6178C262D0028ADF0 /* ktEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3ABE0BE5178C262D0028ADF0 /* ktEvent.cpp */; };
 		3AF518471786F236006EF0FE /* ktPreviewGL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AF518461786F236006EF0FE /* ktPreviewGL.cpp */; };
 		5a4349e9754d6fa14c0f2a3a1abc30b6 /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = fc5da1c87211d4f6377da7199d8c5a1e /* tinyxmlparser.cpp */; };
 		63b57ac5bf4ef088491e0317dbb2ecaa /* ofxXmlSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 50df87d612c5aae17aafa6c02c6bc570 /* ofxXmlSettings.cpp */; };
@@ -126,10 +128,14 @@
 		3A2CAD1617859AB90032AC9C /* ofxUIWaveform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxUIWaveform.h; sourceTree = "<group>"; };
 		3A2CAD1717859AB90032AC9C /* ofxUIWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxUIWidget.h; sourceTree = "<group>"; };
 		3A2CAD1817859AB90032AC9C /* ofxUIWidgetWithLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxUIWidgetWithLabel.h; sourceTree = "<group>"; };
+		3A3F96CC178AC39D00DDE83A /* ktData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ktData.h; sourceTree = "<group>"; };
+		3A3F96CD178AC42A00DDE83A /* ktData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ktData.cpp; sourceTree = "<group>"; };
 		3A74A44E1786D3F50013A970 /* ktSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ktSettings.h; sourceTree = "<group>"; };
 		3A74A44F1786D40B0013A970 /* ktSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ktSettings.cpp; sourceTree = "<group>"; };
 		3AA690861785AAF2007D9C21 /* ktMainUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ktMainUI.h; sourceTree = "<group>"; };
 		3AA690871785AB31007D9C21 /* ktMainUI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ktMainUI.cpp; sourceTree = "<group>"; };
+		3ABE0BE4178C25330028ADF0 /* ktEvent.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = ktEvent.h; sourceTree = "<group>"; };
+		3ABE0BE5178C262D0028ADF0 /* ktEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ktEvent.cpp; sourceTree = "<group>"; };
 		3AF518451786F21C006EF0FE /* ktPreviewGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ktPreviewGL.h; sourceTree = "<group>"; };
 		3AF518461786F236006EF0FE /* ktPreviewGL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ktPreviewGL.cpp; sourceTree = "<group>"; };
 		50df87d612c5aae17aafa6c02c6bc570 /* ofxXmlSettings.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxXmlSettings.cpp; path = ../../../addons/ofxXmlSettings/src/ofxXmlSettings.cpp; sourceTree = SOURCE_ROOT; };
@@ -393,6 +399,10 @@
 				3A74A44F1786D40B0013A970 /* ktSettings.cpp */,
 				3AF518451786F21C006EF0FE /* ktPreviewGL.h */,
 				3AF518461786F236006EF0FE /* ktPreviewGL.cpp */,
+				3A3F96CC178AC39D00DDE83A /* ktData.h */,
+				3A3F96CD178AC42A00DDE83A /* ktData.cpp */,
+				3ABE0BE4178C25330028ADF0 /* ktEvent.h */,
+				3ABE0BE5178C262D0028ADF0 /* ktEvent.cpp */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -503,6 +513,8 @@
 				3AA690881785AB31007D9C21 /* ktMainUI.cpp in Sources */,
 				3A74A4501786D40B0013A970 /* ktSettings.cpp in Sources */,
 				3AF518471786F236006EF0FE /* ktPreviewGL.cpp in Sources */,
+				3A3F96CE178AC42A00DDE83A /* ktData.cpp in Sources */,
+				3ABE0BE6178C262D0028ADF0 /* ktEvent.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

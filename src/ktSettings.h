@@ -10,12 +10,26 @@
 #define kineticTubes_ktSettings_h
 
 #include "ofMain.h"
+#include "ktEvent.h"
 
 class ktSettings
 {
 public:
     void setup();
     void exit();
+    void setTiles(int _tilesX, int _tilesY);
+    
+    void guiSettingsEvent(ktEvent &e);
+    
+    //getters
+    int getTilesX() { return tilesX; };
+    int getTilesY() { return tilesY; };
+    int getTileSizeX() { return tileSizeX; };
+    int getTileSizeY() { return tileSizeY; };
+    int getTileTotalSize() { return arraySize; };
+    ofPoint getScale() { return ofPoint(tubeScaleX, tubeScaleY, tubeHeight); };
+    float getSpacing() { return tubeSpacing; };
+    float getMaxHeight() { return tubeMaxHeight; };
     
 private:
     
@@ -31,6 +45,13 @@ private:
     //The resulting array size
     int arraySize;
     
+    //soft settings for tubes
+    float tubeSpacing;
+    float tubeHeight;
+    float tubeScaleX;
+    float tubeScaleY;
+    float tubeMaxHeight;
+        
     //IP Settings
     string mainIp;
     

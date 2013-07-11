@@ -5,6 +5,9 @@
 #include "ktSettings.h"
 #include "ktMainUI.h"
 #include "ktPreviewGL.h"
+#include "ktEvent.h"
+
+#include "ktData.h"
 
 class kineticTubes : public ofBaseApp
 {
@@ -25,11 +28,16 @@ public:
     void gotMessage(ofMessage msg);
     void exit();
     
+    void guiSettingsEvent(ktEvent &e);
+    
     //Main Settings
     ktSettings *mainSettings;
     
     //GUI
     ktMainUI *mainUI;
     ktPreviewGL *previewGL;
+    
+    //Data handling
+    ktData *testData;
     
 };

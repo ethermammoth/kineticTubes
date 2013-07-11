@@ -11,26 +11,30 @@
 
 #include "ofMain.h"
 #include "ofxUI.h"
+#include "ktSettings.h"
+#include "ktEvent.h"
 
 class ktMainUI
 {
 public:
     
-    void setup(int _width, int _height);
+    void setup(int _width, int _height, ktSettings& settingref);
     void resize(int _width, int _height);
     void exit();
-    string getActive(){ return activeView; }
+    string getActive(){ return activeView; };
     ofRectangle getMainView();
     
 private:
     //functions
-    void guiEvent(ofxUIEventArgs &e);
+    void guiTopbarEvent(ofxUIEventArgs &e);
+    void guiSettingsEvent(ofxUIEventArgs &e);
     
     //variables    
     int width, height;
     int mainTheme;
     string activeView;
     ofRectangle mainView;
+    ktSettings *settings;
     
     //Main Bar
     ofxUICanvas *guiTopbar;
@@ -41,6 +45,12 @@ private:
     ofxUICanvas *guiStatus;
     ofxUICanvas *guiPreview;
     float mainHeightPerc;
+    
+    //Settings Buttons and Sliders
+    ofxUISlider *tilesX;
+    ofxUISlider *tilesY;
+    ofxUIToggle *overrideToggle;
+    ofxUILabelButton *changeButton;
 };
 
 

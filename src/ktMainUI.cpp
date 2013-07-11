@@ -9,10 +9,12 @@
 #include "ktMainUI.h"
 
 
-void ktMainUI::setup(int _width, int _height)
+void ktMainUI::setup(int _width, int _height, ktSettings& settingsref)
 {
+    settings = &settingsref;
+    
     //colors
-    mainTheme = OFX_UI_THEME_MACOSX;
+    mainTheme = OFX_UI_THEME_BERLIN;
     width = _width;
     height = _height;
     
@@ -45,7 +47,7 @@ void ktMainUI::setup(int _width, int _height)
     guiTopbar->addLabelButton("SETTINGS", false, 100.0f);
     guiTopbar->addLabelButton("STATUS", false, 100.0f);
     
-    ofAddListener(guiTopbar->newGUIEvent, this, &ktMainUI::guiEvent);
+    ofAddListener(guiTopbar->newGUIEvent, this, &ktMainUI::guiTopbarEvent);
     
     /* ------Settings Page------
      * 
@@ -53,9 +55,26 @@ void ktMainUI::setup(int _width, int _height)
      */
     guiSettings = new ofxUICanvas(0, height * topHeightPerc, width, height * mainHeightPerc);
     guiSettings->setName("SETTINGS");
+    guiSettings->setFont("GUI/archivo.ttf");
     guiSettings->setTheme(mainTheme);
-    guiSettings->addWidgetRight(new ofxUILabel(("setting"), OFX_UI_FONT_MEDIUM));
+    guiSettings->setWidgetPosition(OFX_UI_WIDGET_POSITION_DOWN);
+    guiSettings->addWidgetRight(new ofxUILabel(("SETTINGS"), OFX_UI_FONT_LARGE));
+    guiSettings->addSpacer();
+    guiSettings->addWidgetDown(new ofxUILabel(("Modules (4*4) XY"), OFX_UI_FONT_MEDIUM));
+    
+    //Sliders for Tile settings
+    tilesX = new ofxUISlider("Tiles X", 1, 40, settings->getTilesX(), 200, 15);
+    tilesY = new ofxUISlider("Tiles Y", 1, 40, settings->getTilesY(), 200, 15);
+    changeButton = new ofxUILabelButton("APPLY", false, 80);
+    overrideToggle = new ofxUIToggle("Override TCP", true, 15, 15);
+    guiSettings->addWidgetDown(tilesX);    
+    guiSettings->addWidgetRight(tilesY);
+    guiSettings->addWidgetRight(overrideToggle);
+    guiSettings->addWidgetRight(changeButton);
+    
     guiSettings->setVisible(false);
+    
+    ofAddListener(guiSettings->newGUIEvent, this, &ktMainUI::guiSettingsEvent);
     
     /* ------Status Page------
      *
@@ -91,7 +110,7 @@ void ktMainUI::exit()
     delete guiPreview;
 }
 
-void ktMainUI::guiEvent(ofxUIEventArgs &e)
+void ktMainUI::guiTopbarEvent(ofxUIEventArgs &e)
 {
     string name = e.widget->getName();
     int kind = e.widget->getKind();
@@ -118,6 +137,21 @@ void ktMainUI::guiEvent(ofxUIEventArgs &e)
         guiSettings->setVisible(false);
         guiStatus->setVisible(true);
     }
+}
+
+void ktMainUI::guiSettingsEvent(ofxUIEventArgs &e)
+{
+    string name = e.widget->getName();
+    int kind = e.widget->getKind();
+    cout << "got event from: " << name << endl;
+    
+    if(name == "APPLY")
+    {
+        ktEvent settingEvent;
+        settingEvent.message = "SETTINGS";
+        ofNotifyEvent(ktEvent::events, settingEvent);
+    }
+    
 }
 
 void ktMainUI::resize(int _width, int _height)
